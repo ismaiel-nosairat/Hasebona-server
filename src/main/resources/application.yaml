@@ -1,0 +1,49 @@
+###
+#   Database Settings
+###
+server:
+  port: 9000
+  compression:
+    enabled: true
+    mime-types: application/json,text/css,application/javascript
+    min-response-size: 2048
+
+spring:
+  datasource:
+    url: jdbc:h2:mem:example-app;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    platform: h2
+    username: sa
+    password:
+    driverClassName: org.h2.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        enable_lazy_load_no_trans: false
+        show_sql: true
+        use_sql_comments: false
+        format_sql: false
+  jackson:
+    default-property-inclusion: non_null
+security:
+  user:
+    name: user
+    password: password
+  ignored: /**
+###
+#   H2 Settings
+###
+  h2:
+    console:
+      enabled: true
+      path: /console
+      settings:
+        trace: false
+        web-allow-others: false
+####
+##  Server setting
+####
+#    server:
+#        port: 8765
